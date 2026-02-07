@@ -5,3 +5,12 @@ nvim
 
 spell/
 lazy-lock.json
+
+# Lazy.nvim 插件安装目录
+lazy/
+# Maon LSP/formatter 安装目录
+mason/
+# netrw 浏览历史
+.netrwhist
+# Telescope 搜索历史
+telescope_history
