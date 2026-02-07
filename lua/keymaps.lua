@@ -51,4 +51,16 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- [[ Custom Keymaps ]]
+vim.keymap.set('n', '<leader>j', ':bnext<CR>', { desc = 'Switch to Next buffer', silent = true })
+vim.keymap.set('n', '<leader>k', ':bprevious<CR>', { desc = 'Switch to Previous buffer', silent = true })
+
+vim.keymap.set('c', '<C-h>', '<left>', { desc = 'Move cursor left in command line', silent = false })
+vim.keymap.set('c', '<C-j>', '<down>', { desc = 'Move cursor Down in command line', silent = false })
+vim.keymap.set('c', '<C-k>', '<up>', { desc = 'Move cursor Up in command line', silent = false })
+vim.keymap.set('c', '<C-l>', '<right>', { desc = 'Move cursor Right in command line', silent = false })
+
+vim.keymap.set('v', '<leader>y', [["+y]], { desc = 'Yanking into Clipboard', silent = true })
+vim.keymap.set('i', 'jk', '<Esc>', { desc = 'Exiting insert mode', silent = true })
+
 -- vim: ts=2 sts=2 sw=2 et
