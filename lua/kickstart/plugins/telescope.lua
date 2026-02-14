@@ -55,12 +55,12 @@ return {
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
         --
-        -- defaults = {
-        --   mappings = {
-        --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-        --   },
-        -- },
-        -- pickers = {}
+        defaults = {
+          path_display = { 'truncate' },
+          layout_config = {
+            horizontal = { preview_width = 0.45 },
+          },
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
@@ -107,6 +107,15 @@ return {
       vim.keymap.set('n', '<leader>sn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[S]earch [N]eovim files' })
+
+      -- Scoped file search
+      vim.keymap.set('n', '<leader>sp', function()
+        builtin.find_files { cwd = vim.fn.expand '~/local/coding' }
+      end, { desc = '[S]earch [P]rojects' })
+
+      vim.keymap.set('n', '<leader>sc', function()
+        builtin.find_files { cwd = vim.fn.expand '~/.config' }
+      end, { desc = '[S]earch [C]onfig' })
     end,
   },
 }
