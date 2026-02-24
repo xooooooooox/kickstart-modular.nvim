@@ -25,9 +25,30 @@ return {
       end
     end,
     keys = {
-      { '<leader>mp', ':MarkdownPreview<CR>', mode = 'n', desc = 'Markdown Preview', silent = true },
-      { '<leader>ms', ':MarkdownPreviewStop<CR>', mode = 'n', desc = 'Markdown Preview Stop', silent = true },
-      { '<leader>mt', ':MarkdownPreviewToggle<CR>', mode = 'n', desc = 'Markdown Preview Toggle', silent = true },
+      {
+        '<leader>mp',
+        function()
+          vim.g._mkdp_preview_active = true
+          vim.cmd('MarkdownPreview')
+        end,
+        mode = 'n', desc = 'Markdown Preview', silent = true,
+      },
+      {
+        '<leader>ms',
+        function()
+          vim.g._mkdp_preview_active = false
+          vim.cmd('MarkdownPreviewStop')
+        end,
+        mode = 'n', desc = 'Markdown Preview Stop', silent = true,
+      },
+      {
+        '<leader>mt',
+        function()
+          vim.g._mkdp_preview_active = not vim.g._mkdp_preview_active
+          vim.cmd('MarkdownPreviewToggle')
+        end,
+        mode = 'n', desc = 'Markdown Preview Toggle', silent = true,
+      },
     },
     config = function()
       local g = vim.g
@@ -38,6 +59,7 @@ return {
       g.mkdp_port = 8888
       g.mkdp_browser = 'none'
       g.mkdp_echo_preview_url = 1
+      g.mkdp_combine_preview = 1
       g.mkdp_preview_options = {
         disable_scroll_type = 0,
         disable_filename = 1,
