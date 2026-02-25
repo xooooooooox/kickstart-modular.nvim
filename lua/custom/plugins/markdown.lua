@@ -32,6 +32,10 @@ return {
           buffer = ev.buf,
           desc = 'Go back (markdown nav)',
         })
+        vim.keymap.set('n', '<leader>mc', '<cmd>MDToc<CR>', {
+          buffer = ev.buf,
+          desc = 'Markdown TOC (location list)',
+        })
       end,
     })
 
