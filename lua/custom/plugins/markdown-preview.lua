@@ -61,6 +61,9 @@ return {
       g.mkdp_echo_preview_url = 1
       g.mkdp_combine_preview = 1
       g.mkdp_preview_options = {
+        mkit = {
+          breaks = true, -- 软换行渲染为硬换行（无需行末双空格）
+        },
         disable_scroll_type = 0,
         disable_filename = 1,
       }
