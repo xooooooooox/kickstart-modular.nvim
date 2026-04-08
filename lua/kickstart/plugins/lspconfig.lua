@@ -221,6 +221,8 @@ return {
         -- ts_ls = {},
         --
 
+        bashls = {}, -- bash-language-server：shell 脚本 LSP（符号、跳转、引用）
+
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
